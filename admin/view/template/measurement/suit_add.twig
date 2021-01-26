@@ -1,0 +1,127 @@
+{{ header }}{{ column_left }}
+<div id="content">
+  <div class="page-header">
+    <div class="container-fluid">
+      <div class="pull-right">
+        <button type="submit" form="form-admin" data-toggle="tooltip" title="{{ button_save }}" class="btn btn-primary"><i class="fa fa-save"></i></button>
+        <a href="{{ cancel }}" data-toggle="tooltip" title="{{ button_cancel }}" class="btn btn-default"><i class="fa fa-reply"></i></a></div>
+      <h1>{{ heading_title }}</h1>
+      <ul class="breadcrumb">
+        {% for breadcrumb in breadcrumbs %}
+        <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  <div class="container-fluid">
+    {% if error_warning %}
+    <div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+    {% endif %}
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><i class="fa fa-pencil"></i> {{ text_form }}</h3>
+      </div>
+
+      
+        <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-suit" class="form-horizontal">
+
+            <div class="form-group required">
+                <label class="col-sm-2 control-label" for="input-length">{{ entry_length }}</label>
+                <div class="col-sm-1">
+                  <input type="text" name="length" value="{{ length }}" placeholder="{{ entry_length }}" id="input-length" class="form-control" />
+                  {% if error_length %}
+                  <div class="text-danger">{{ error_length }}</div>
+                  {% endif %}
+                </div>
+              </div>
+          <div class="form-group required">
+            <label class="col-sm-2 control-label" for="input-shoulder">{{ entry_shoulder }}</label>
+            <div class="col-sm-1">
+              <input type="text" name="shoulder" value="{{ shoulder }}" placeholder="{{ entry_shoulder}}" id="input-shoulder" class="form-control" />
+              {% if error_shoulder %}
+              <div class="text-danger">{{ error_shoulder}}</div>
+              {% endif %}
+            </div>
+          </div>
+          <div class="form-group required">
+            <label class="col-sm-2 control-label" for="input-cuff_h">{{ entry_cuff_h}}</label>
+            <div class="col-sm-1">
+                <input type="text" name="cuff_h" value="{{ cuff_h }}" placeholder="{{ entry_cuff_h}}" id="input-cuff_h" class="form-control" />
+              {% if error_cuff_h %}
+              <div class="text-danger">{{ error_cuff_h }}</div>
+              {% endif %}
+            </div>
+          </div>
+          
+          <div class="form-group required">
+            <label class="col-sm-2 control-label" for="input-cuff_o">{{ entry_cuff_o}}</label>
+            <div class="col-sm-1">
+                <input type="text" name="cuff_o" value="{{ cuff_o }}" placeholder="{{ entry_cuff_o }}" id="input-cuff_o" class="form-control" />
+              {% if error_cuff_o %}
+              <div class="text-danger">{{ error_cuff_o}}</div>
+              {% endif %}
+            </div>
+          </div>
+          <div class="form-group required">
+            <label class="col-sm-2 control-label" for="input-chest_f">{{ entry_chest_f}}</label>
+            <div class="col-sm-1">
+                <input type="text" name="chest_f" value="{{ chest_f }}" placeholder="{{ entry_chest_f }}" id="input-chest_f" class="form-control" />
+              {% if error_chest_f %}
+              <div class="text-danger">{{ error_chest_f}}</div>
+              {% endif %}
+            </div>
+          </div>
+          <div class="form-group required">
+            <label class="col-sm-2 control-label" for="input-chest_b">{{ entry_chest_b }}</label>
+            <div class="col-sm-1">
+                <input type="text" name="chest_b" value="{{ chest_b }}" placeholder="{{ entry_chest_b }}" id="input-chest_b" class="form-control" />
+              {% if error_chest_b %}
+              <div class="text-danger">{{ error_chest_b }}</div>
+              {% endif %}
+            </div>
+          </div>
+          <div class="form-group required">
+            <label class="col-sm-2 control-label" for="input-hip">{{ entry_hip}}</label>
+            <div class="col-sm-1">
+                <input type="text" name="hip" value="{{ hip }}" placeholder="{{ entry_hip }}" id="input-hip" class="form-control" />
+              {% if error_hip %}
+              <div class="text-danger">{{ error_hip }}</div>
+              {% endif %}
+            </div>
+          </div>
+
+          <div class="form-group required">
+            <label class="col-sm-2 control-label" for="input-collar">{{ entry_collar }}</label>
+            <div class="col-sm-1">
+                <input type="text" name="collar" value="{{ collar }}" placeholder="{{ entry_collar }}" id="input-collar" class="form-control" />
+              {% if error_collar %}
+              <div class="text-danger">{{ error_collar}}</div>
+              {% endif %}
+            </div>
+          </div>
+
+
+          <div class="form-group required">
+            <label class="col-sm-2 control-label" for="input-status">{{ entry_status }}</label>
+            <div class="col-sm-1">
+                <select name="status" id="input-status" class="form-control">
+                {% if status %}
+                <option value="0">{{ text_disabled }}</option>
+                <option value="1" selected="selected">{{ text_enabled }}</option>
+                {% else %}
+                <option value="0" selected="selected">{{ text_disabled }}</option>
+                <option value="1">{{ text_enabled }}</option>
+                {% endif %}
+              </select>
+            </div>
+          </div>
+          
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+ 
