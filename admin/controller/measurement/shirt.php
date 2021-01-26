@@ -11,7 +11,7 @@ class ControllerMeasurementShirt extends Controller {
 		$this->load->model('measurement/shirt');
 
         $this->getList();
-        
+        //edit
 	}
 
 	public function add() {
